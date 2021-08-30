@@ -12,7 +12,7 @@
 #              Bash 4.4.19
 # ------------------------------------------------------------------------ #
 
-function menuprincipal () {
+menuprincipal () {
 clear
 TIME=1
 echo " "
@@ -33,7 +33,7 @@ echo -n "Chosen option: "
 read opcao
 case $opcao in
 	1)
-		function processador () {
+		processador () {
 			CPU_INFO=`cat /proc/cpuinfo | grep -i "^model name" | cut -d ":" -f2 | sed -n '1p'`
 			echo "CPU model: $CPU_INFO"
 			sleep $TIME
@@ -44,7 +44,7 @@ case $opcao in
 		;;
 
 	2)
-		function kernel () {
+		kernel () {
 			#RED HAT: cat /etc/redhat-release
 			KERNEL_VERSION_UBUNTU=`uname -r`
 			KERNEL_VERSION_CENTOS=`uname -r`
@@ -61,7 +61,7 @@ case $opcao in
 		;;
 
 	3)
-		function softwares () {
+		softwares () {
 			#while true; do
 			TIME=3
 			echo " "
@@ -111,7 +111,7 @@ case $opcao in
 		;;
 	
 	4)
-		function sistema () {
+		sistema () {
 			VERSION=`cat /etc/os-release | grep -i ^PRETTY`
 			if [ -f /etc/os-release ]
 			then
@@ -127,7 +127,7 @@ case $opcao in
 
 
 	5)
-		function memory () {
+		memory () {
 			MEMORY_FREE=`free -m  | grep ^Mem | tr -s ' ' | cut -d ' ' -f 4`
 			#MEMORY_TOTAL=
 			#MEMORY_USED=
@@ -140,7 +140,7 @@ case $opcao in
 		;;
 
 	6)
-		function serial () {
+		serial () {
 			SERIAL_NUMBER=`dmidecode -t 1 | grep -i serial`
 			echo $SERIAL_NUMBER
 		}
@@ -150,7 +150,7 @@ case $opcao in
 		;;
 
 	7)
-		function ip () {
+		ip () {
 			IP_SISTEMA=`hostname -I`
 			echo IP is: $IP_SISTEMA
 		}
